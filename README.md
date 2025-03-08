@@ -2,7 +2,7 @@
 
 # ⭐ Shooting Stars ⭐
 
-This is a game built using **Java 21** and **Gradle 8.10**. It relies on Gradle features that will be removed in Gradle 9, so upgrading is not possible.
+This is a game built using **Java 21** and **Gradle 8.13**.
 
 ## 📥 Installation
 
@@ -27,7 +27,7 @@ Shoot as many stars as possible before time runs out! ⏳✨
 
 ## 🛠️ Running from Source
 
-To run the game from the source code, you need to clone this repository,
+To run the game from the source code, you need to clone this repository:
 
 ```shell
 git clone https://github.com/kireiiiiiiii/shooting-stars.git
@@ -36,8 +36,16 @@ cd shooting-stars
 
 And then run the Gradle `run` task, which will use [ShadowJar](https://github.com/GradleUp/shadow) to package and execute the game:
 
+On macOS/Linux:
+
 ```shell
-gradle run
+./gradlew run
+```
+
+On Windows:
+
+```shell
+gradlew.bat run
 ```
 
 ## 📦 Packaging
