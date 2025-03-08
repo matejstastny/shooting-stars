@@ -9,7 +9,7 @@ This is a game built using **Java 21** and **Gradle 8.13**.
 
 ## 📥 Installation
 
-1. **Download the appropriate installer from the [latest release:]()**
+1. **Download the appropriate installer from the [latest release:](https://github.com/kireiiiiiiii/shooting-stars/releases/latest)**
 
 - Windows: `.exe` installer (No Java required)
 - macOS: `.dmg` installer (No Java required)
