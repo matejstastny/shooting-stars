@@ -4,11 +4,20 @@
 
 This is a game built using **Java 21** and **Gradle 8.13**.
 
-## 📥 Installation
+📥 Installation
 
-1. Download the universal `.jar` file from the [latest release](https://github.com/kireiiiiiiii/shooting-stars/releases/latest).
-2. Ensure you have **Java 21** or higher installed on your system.
-3. Run the `.jar` file by double clicking it or from the terminal.
+1. Download the appropriate installer from the latest release:
+
+- Windows: .exe installer (No Java required)
+- macOS: .dmg installer (No Java required)
+- Universal: .jar file (Requires Java 21 or higher)
+
+If using the universal .jar file, ensure you have Java 21 or higher installed on your system.
+
+2. Run the downloaded file:
+
+- Windows/macOS: Open the installer and follow the instructions.
+- Universal .jar: Double-click it or run it from the terminal.
 
 ## 🎯 Goal of the Game
 
