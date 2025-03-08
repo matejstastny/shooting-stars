@@ -1,20 +1,23 @@
+> [!NOTE]
+> This project represents its final, complete version and will likely not receive further updates as I’ve moved on to other projects.
+
 ![banner](https://github.com/kireiiiiiiii/shooting-stars/blob/master/assets/.github/banner.png?raw=true)
 
 # ⭐ Shooting Stars ⭐
 
 This is a game built using **Java 21** and **Gradle 8.13**.
 
-📥 Installation
+## 📥 Installation
 
-1. Download the appropriate installer from the latest release:
+1. **Download the appropriate installer from the latest release:**
 
 - Windows: .exe installer (No Java required)
 - macOS: .dmg installer (No Java required)
 - Universal: .jar file (Requires Java 21 or higher)
 
-If using the universal .jar file, ensure you have Java 21 or higher installed on your system.
+2. If using the universal .jar file, ensure you have Java 21 or higher installed on your system.
 
-2. Run the downloaded file:
+3. **Run the downloaded file:**
 
 - Windows/macOS: Open the installer and follow the instructions.
 - Universal .jar: Double-click it or run it from the terminal.
@@ -80,9 +83,7 @@ sh package.sh
 
 ## 🚀 Future Goals / Tasks
 
-- ✅ Improve target placement (no overlapping with the scoreboard or edges).
 - ✅ Add **random target rotation** for variety.
-- ✅ Enhance hitbox detection (include star tips, not just the center).
 - ✅ Add **sound effects and music** for a better experience.
 - ✅ Include an **exit button** in the main menu.
 
