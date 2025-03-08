@@ -31,11 +31,10 @@ echo "Building JAR with Gradle..."
 echo "Creating custom JRE..."
 rm -rf "$JRE_DIR"
 
-MODULES=$(jdeps --print-module-deps --ignore-missing-deps "$INPUT_PATH/$JAR_NAME.jar" | tr ',' ',')
+MODULES=$(jdeps --multi-release 21 --print-module-deps --ignore-missing-deps "$INPUT_PATH/$JAR_NAME.jar" | tr ',' ',')
 
-echo "Running jlink..."
 jlink \
-    --module-path "$(jdeps --print-module-deps --ignore-missing-deps "$INPUT_PATH/$JAR_NAME.jar" | tr ',' ';')" \
+    --module-path "$JAVA_HOME/jmods" \
     --add-modules "$MODULES" \
     --output "$JRE_DIR" \
     --strip-debug \
