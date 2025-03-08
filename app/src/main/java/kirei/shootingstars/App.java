@@ -52,7 +52,7 @@ public class App {
 
     public static final String APP_NAME = "ShootingStars";
     private static final int GAME_LENGHT = 20;
-    private static final int DEFAULT_TARGET_RADIUS = 45;
+    private static final int DEFAULT_TARGET_RADIUS = 40;
     private static final int TARGET_SCORE = 10;
     private static final int FPS = 60;
     public final int WINDOW_PADDING = 10;

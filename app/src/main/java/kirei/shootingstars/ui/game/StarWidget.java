@@ -50,7 +50,7 @@ public class StarWidget implements Renderable, Interactable {
     // Constants
     ////////////////
 
-    private final int CORRECTION = 20;
+    private final int CORRECTION = 5;
 
     /////////////////
     // Variables
@@ -70,7 +70,7 @@ public class StarWidget implements Renderable, Interactable {
      *
      */
     public StarWidget() {
-        this.showHitbox = false;
+        this.showHitbox = true;
         this.radius = 0;
         this.location = new int[2];
         this.location[0] = 0;
