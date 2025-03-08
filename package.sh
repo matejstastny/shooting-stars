@@ -39,7 +39,6 @@ jlink \
     --add-modules "$MODULES" \
     --output "$JRE_DIR" \
     --strip-debug \
-    --compress=2 \
     --no-header-files \
     --no-man-pages
 
