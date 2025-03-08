@@ -244,10 +244,10 @@ public class App {
 
     public void onTargetHit(boolean init) {
         // ---- Calculate next position ----
-        int minY = 0;
-        int minX = 0;
-        int maxX = this.gpanel.getWidth();
-        int maxY = this.gpanel.getHeight();
+        int minY = DEFAULT_TARGET_RADIUS;
+        int minX = DEFAULT_TARGET_RADIUS;
+        int maxX = this.gpanel.getWidth() - DEFAULT_TARGET_RADIUS;
+        int maxY = this.gpanel.getHeight() - DEFAULT_TARGET_RADIUS - 20;
 
         int x = (int) (Math.random() * (maxX - minX + 1)) + minX;
         int y = (int) (Math.random() * (maxY - minY + 1)) + minY;
