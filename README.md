@@ -9,18 +9,18 @@ This is a game built using **Java 21** and **Gradle 8.13**.
 
 ## 📥 Installation
 
-1. **Download the appropriate installer from the latest release:**
+1. **Download the appropriate installer from the [latest release:]()**
 
-- Windows: .exe installer (No Java required)
-- macOS: .dmg installer (No Java required)
-- Universal: .jar file (Requires Java 21 or higher)
+- Windows: `.exe` installer (No Java required)
+- macOS: `.dmg` installer (No Java required)
+- Universal: `.jar` file (Requires Java 21 or higher)
 
-2. If using the universal .jar file, ensure you have Java 21 or higher installed on your system.
+2. **If using the universal `.jar` file, ensure you have Java 21 or higher installed on your system.**
 
 3. **Run the downloaded file:**
 
 - Windows/macOS: Open the installer and follow the instructions.
-- Universal .jar: Double-click it or run it from the terminal.
+- Universal `.jar`: Double-click it or run it from the terminal.
 
 ## 🎯 Goal of the Game
 
@@ -48,13 +48,13 @@ cd shooting-stars
 
 And then run the Gradle `run` task, which will use [ShadowJar](https://github.com/GradleUp/shadow) to package and execute the game:
 
-On macOS/Linux:
+**On macOS/Linux:**
 
 ```shell
 ./gradlew run
 ```
 
-On Windows:
+**On Windows:**
 
 ```shell
 gradlew.bat run
@@ -64,14 +64,14 @@ gradlew.bat run
 
 This project includes shell scripts to package the game into a **`.dmg` (macOS)** or **`.exe` (Windows)** using [jpackage](https://docs.oracle.com/en/java/javase/17/docs/specs/man/jpackage.html). These scripts include a custom JRE and automatically detect the OS. How to package the game:
 
-1. Clone this repository:
+**1. Clone this repository:**
 
 ```shell
 git clone https://github.com/kireiiiiiiii/shooting-stars.git
 cd shooting-stars
 ```
 
-2. Run the packaging script:
+**2. Run the packaging script:**
 
 ```shell
 sh package.sh
@@ -83,9 +83,9 @@ sh package.sh
 
 ## 🚀 Future Goals / Tasks
 
-- ✅ Add **random target rotation** for variety.
-- ✅ Add **sound effects and music** for a better experience.
-- ✅ Include an **exit button** in the main menu.
+- 📦 Add **random target rotation** for variety.
+- 📦 Add **sound effects and music** for a better experience.
+- 📦 Include an **exit button** in the main menu.
 
 ## 📩 Contact
 
