@@ -30,16 +30,19 @@ echo "Building JAR with Gradle..."
 # Diet JRE
 echo "Creating custom JRE..."
 rm -rf "$JRE_DIR"
+
+MODULES=$(jdeps --print-module-deps --ignore-missing-deps "$INPUT_PATH/$JAR_NAME.jar" | tr ',' ',')
+
+echo "Running jlink..."
 jlink \
-    --module-path "$(jdeps --print-module-deps --ignore-missing-deps "$INPUT_PATH/$JAR_NAME.jar" | tr ',' ':')" \
-    --add-modules $(jdeps --print-module-deps --ignore-missing-deps "$INPUT_PATH/$JAR_NAME.jar") \
+    --module-path "$(jdeps --print-module-deps --ignore-missing-deps "$INPUT_PATH/$JAR_NAME.jar" | tr ',' ';')" \
+    --add-modules "$MODULES" \
     --output "$JRE_DIR" \
     --strip-debug \
     --compress=2 \
     --no-header-files \
     --no-man-pages
 
-# Check platform and create packages accordingly
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # MacOS DMG
     mkdir -p "$MAC_BUILD_DIR"
