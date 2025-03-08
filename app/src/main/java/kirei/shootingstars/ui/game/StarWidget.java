@@ -71,7 +71,7 @@ public class StarWidget implements Renderable, Interactable {
      */
     public StarWidget() {
         this.showHitbox = false;
-        this.radius = 10;
+        this.radius = 0;
         this.location = new int[2];
         this.location[0] = 0;
         this.location[1] = 0;
@@ -88,13 +88,11 @@ public class StarWidget implements Renderable, Interactable {
             return;
         }
 
-        g.drawImage(ImageUtil.scaleImage(Textures.STAR, radius * 2 + CORRECTION, radius * 2 + CORRECTION),
-                location[0] - radius - CORRECTION / 2, location[1] - radius - CORRECTION / 2 - 2, img);
+        g.drawImage(ImageUtil.scaleImage(Textures.STAR, radius * 2 + CORRECTION, radius * 2 + CORRECTION), location[0] - radius - CORRECTION / 2, location[1] - radius - CORRECTION / 2 - 2, img);
 
         if (this.showHitbox) {
             g.setColor(Colors.HITBOX);
-            g.fillOval(this.location[0] - this.radius, this.location[1] - this.radius,
-                    this.radius * 2, this.radius * 2);
+            g.fillOval(this.location[0] - this.radius, this.location[1] - this.radius, this.radius * 2, this.radius * 2);
 
         }
     }
@@ -156,8 +154,7 @@ public class StarWidget implements Renderable, Interactable {
     public boolean wasInteracted(MouseEvent e) {
         int x = e.getX();
         int y = e.getY();
-        return Math.abs(this.location[0] - x) <= this.radius
-                && Math.abs(this.location[1] - y) <= this.radius;
+        return Math.abs(this.location[0] - x) <= this.radius && Math.abs(this.location[1] - y) <= this.radius;
     }
 
     @Override
