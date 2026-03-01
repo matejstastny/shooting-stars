@@ -2,7 +2,9 @@
   <img src="assets/banners/banner.png" alt="Shooting Stars Banner" width="100%">
 </div>
 
-**Shooting Stars** is a Java desktop game where you click on stars as fast as you can before the clock runs out. Each hit scores points, each miss costs you - beat your high score and climb your personal leaderboard.
+<br>
+
+**Shooting Stars** is a Java desktop game where you click on stars as fast as you can before the clock runs out. Each hit scores points, each miss costs you - beat your high score and climb your personal leaderboard. You can install the newest version [here](https://github.com/matejstastny/shooting-stars/releases/latest).
 
 ## Features
 
@@ -32,21 +34,6 @@ The `package.sh` script builds a platform-specific installer using `jpackage` an
 
 - **macOS** → `app/build/mac/Shooting Stars.dmg`
 - **Windows** → `app/build/win/Shooting Stars.exe`
-
-## Controls
-
-| Key   | Action         |
-| ----- | -------------- |
-| `S`   | Start game     |
-| `Esc` | Pause / Resume |
-| `R`   | Restart        |
-
-## Scoring
-
-| Action                 | Points  |
-| ---------------------- | ------- |
-| Hit a star             | **+20** |
-| Miss (click elsewhere) | **−10** |
 
 ## Settings & data
 
