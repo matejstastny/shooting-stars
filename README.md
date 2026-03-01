@@ -4,7 +4,7 @@
 
 <br>
 
-**Shooting Stars** is a Java desktop game where you click on stars as fast as you can before the clock runs out. Each hit scores points, each miss costs you - beat your high score and climb your personal leaderboard.
+**Shooting Stars** is a Java desktop game where you click on stars as fast as you can before the clock runs out. Each hit scores points, each miss costs you - beat your high score and climb your personal leaderboard. You can install the newest version [here](https://github.com/matejstastny/shooting-stars/releases/latest).
 
 ## Features
 
