@@ -1,5 +1,11 @@
 {
-  "java.format.settings.url": "./.vscode/java-formatter.xml",
-  "java.configuration.updateBuildConfiguration": "automatic",
-  "java.import.gradle.enabled": true
+    "java.format.settings.url": "./.vscode/java-formatter.xml",
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.gradle.enabled": true,
+    "[java]": {
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        }
+    }
 }

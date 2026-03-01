@@ -1,92 +1,57 @@
-> [!NOTE]
-> This project represents its final, complete version and will likely not receive further updates as I’ve moved on to other projects.
+<div align="center">
+  <img src="assets/banners/banner.png" alt="Shooting Stars Banner" width="100%">
+</div>
 
-![banner](https://github.com/kireiiiiiiii/shooting-stars/blob/master/assets/.github/banner.png?raw=true)
+<br>
 
-# ⭐ Shooting Stars ⭐
+**Shooting Stars** is a Java desktop game where you click on stars as fast as you can before the clock runs out. Each hit scores points, each miss costs you - beat your high score and climb your personal leaderboard. You can install the newest version [here](https://github.com/matejstastny/shooting-stars/releases/latest).
 
-This is a game built using **Java 21** and **Gradle 8.13**.
+## Features
 
-## 📥 Installation
+- 30-second click reaction rounds
+- Score tracking with a persistent high score
+- 4 language options: **English**, **Czech**, **Japanese**, **Korean**
+- Native installer support (macOS DMG / Windows EXE)
 
-1. **Download the appropriate installer from the [latest release:](https://github.com/kireiiiiiiii/shooting-stars/releases/latest)**
+## Running from source
 
-- Windows: `.exe` installer (No Java required)
-- macOS: `.dmg` installer (No Java required)
-- Universal: `.jar` file (Requires Java 21 or higher)
-
-2. **If using the universal `.jar` file, ensure you have Java 21 or higher installed on your system.**
-
-3. **Run the downloaded file:**
-
-- Windows/macOS: Open the installer and follow the instructions.
-- Universal `.jar`: Double-click it or run it from the terminal.
-
-## 🎯 Goal of the Game
-
-Shoot as many stars as possible before time runs out! ⏳✨
-
-- Each successfully shot star **earns you +10 points**.
-- Clicking outside the target **subtracts 10 points**, but your score can’t go negative.
-- Aim for the **highest score** before the timer hits zero!
-
-## 🎮 Controls
-
-- **S Key** ➝ Start the game (Main Menu)
-- **Left Mouse Click** ➝ Shoot the star target
-- **R Key** ➝ Restart the game
-- **ESC Key** ➝ Pause the game
-
-## 🛠️ Running from Source
-
-To run the game from the source code, you need to clone this repository:
-
-```shell
-git clone https://github.com/kireiiiiiiii/shooting-stars.git
+```bash
+# Clone the repo
+git clone https://github.com/matejstastny/shooting-stars.git
 cd shooting-stars
-```
 
-And then run the Gradle `run` task, which will use [ShadowJar](https://github.com/GradleUp/shadow) to package and execute the game:
-
-**On macOS/Linux:**
-
-```shell
+# Run
 ./gradlew run
 ```
 
-**On Windows:**
+## Building a native installer
 
-```shell
-gradlew.bat run
+The `package.sh` script builds a platform-specific installer using `jpackage` and `jlink`:
+
+```bash
+./package.sh
 ```
 
-## 📦 Packaging
+- **macOS** → `app/build/mac/Shooting Stars.dmg`
+- **Windows** → `app/build/win/Shooting Stars.exe`
 
-This project includes shell scripts to package the game into a **`.dmg` (macOS)** or **`.exe` (Windows)** using [jpackage](https://docs.oracle.com/en/java/javase/17/docs/specs/man/jpackage.html). These scripts include a custom JRE and automatically detect the OS. How to package the game:
+## Settings & data
 
-**1. Clone this repository:**
+User data is stored locally and persists between sessions:
 
-```shell
-git clone https://github.com/kireiiiiiiii/shooting-stars.git
-cd shooting-stars
-```
+| Platform      | Path                                 |
+| ------------- | ------------------------------------ |
+| macOS / Linux | `~/.ShootingStars/user_data/`        |
+| Windows       | `%APPDATA%\ShootingStars\user_data\` |
 
-**2. Run the packaging script:**
+To reset your score and settings, use the **Delete Data** button in the in-game settings panel.
 
-```shell
-sh package.sh
-```
+## Tech stack
 
-- On **macOS**, this will generate a `.dmg` file.
-- On **Windows**, this will generate an `.exe` file.
-- **Other platforms are not supported** due to OS-specific dependencies.
-
-## 🚀 Future Goals / Tasks
-
-- 📦 Add **random target rotation** for variety.
-- 📦 Add **sound effects and music** for a better experience.
-- 📦 Include an **exit button** in the main menu.
-
-## 📩 Contact
-
-💬 Have feedback, issues, or suggestions? Open an **issue** or contact me on Instagram: [@\_kireiiiiiiii](https://www.instagram.com/_kireiiiiiiii)
+|          |                                   |
+| -------- | --------------------------------- |
+| Language | Java 21                           |
+| UI       | Java Swing                        |
+| Build    | Gradle + Shadow JAR               |
+| Data     | Jackson (JSON), Apache POI (XLSX) |
+| Logging  | Log4j2                            |
