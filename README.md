@@ -26,14 +26,14 @@ cd shooting-stars
 
 ## Building a native installer
 
-The `package.sh` script builds a platform-specific installer using `jpackage` and `jlink`:
+The `package.sh` script builds a platform-specific installer using `jpackage`:
 
 ```bash
 ./package.sh
 ```
 
-- **macOS** → `app/build/mac/Shooting Stars.dmg`
-- **Windows** → `app/build/win/Shooting Stars.exe`
+- **macOS** → `app/build/dist/mac/<app>.dmg`
+- **Windows** → `app/build/dist/win/<app>.exe`
 
 ## Settings & data
 
