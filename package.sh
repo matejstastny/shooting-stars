@@ -16,6 +16,19 @@ JAR_TASK="shadowjar"
 
 # Process -------------------------------------------------------------------
 
+check_command() {
+    if ! command -v "$1" &>/dev/null; then
+        echo "ERROR: '$1' not found. Make sure you have a full JDK 21+ installed and \$JAVA_HOME/bin is on your PATH."
+        exit 1
+    fi
+    echo "Found: $1 ($(command -v "$1"))"
+}
+
+check_command java
+check_command jdeps
+check_command jlink
+check_command jpackage
+
 JAVA_VERSION=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}' | awk -F. '{print $1}')
 if [ "$JAVA_VERSION" -ge 21 ]; then
     echo "Java version is $JAVA_VERSION, which meets the requirement of 21 or higher."
