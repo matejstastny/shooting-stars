@@ -125,6 +125,19 @@ MINGW* | MSYS* | CYGWIN*)
 	export WIX PATH="$WIX/bin:$PATH"
 	log_inf "WIX       → $WIX"
 	;;
+*)
+	if [[ -z "${JAVA_HOME:-}" ]]; then
+		if command -v /usr/libexec/java_home &>/dev/null; then
+			JAVA_HOME="$(/usr/libexec/java_home)"
+		else
+			JAVA_HOME="$(dirname "$(dirname "$(readlink -f "$(command -v java)")")")"
+		fi
+		log_inf "Auto-detected JAVA_HOME → $JAVA_HOME"
+	else
+		log_inf "JAVA_HOME → $JAVA_HOME"
+	fi
+	export JAVA_HOME
+	;;
 esac
 
 # =============================================================================
