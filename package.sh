@@ -73,11 +73,24 @@ check_command jlink
 check_command jpackage
 
 if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OSTYPE" == "win32" ]]; then
+	if [[ -z "$WIX" ]]; then
+		echo "[ERR] WIX environment variable is not set"
+		echo "[INF] jpackage requires WiX 3 to build EXE installers. WiX 4+ is NOT supported"
+		echo "[INF] 1. Download WiX 3 from: https://github.com/wixtoolset/wix3/releases/latest"
+		echo "[INF] 2. Install it, then set the WIX system variable to the install directory"
+		exit 1
+	fi
+	if command -v cygpath &>/dev/null; then
+		WIX="$(cygpath -u "$WIX")"
+	else
+		WIX="/${WIX:0:1,,}${WIX:2}"
+		WIX="${WIX//\\//}"
+	fi
+	export PATH="$WIX/bin:$PATH"
+	echo "[INF] Normalized WIX: $WIX"
 	if ! command -v candle.exe &>/dev/null || ! command -v light.exe &>/dev/null; then
-		echo "[ERR] WiX tools (candle.exe, light.exe) not found."
-		echo "[INF] jpackage requires WiX 3 to build EXE installers. WiX 4+ is NOT supported."
-		echo "[INF] Download WiX 3 from: https://github.com/wixtoolset/wix3/releases/latest"
-		echo "[INF] After installing, add the WiX bin folder to your system PATH."
+		echo "[ERR] WiX tools (candle.exe, light.exe) not found in WIX/bin."
+		echo "[INF] Make sure WIX points to the root WiX install directory (not the bin subfolder)"
 		exit 1
 	fi
 	echo "[INF] Found WiX: $(command -v candle.exe)"
