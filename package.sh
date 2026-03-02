@@ -107,7 +107,7 @@ fi
 echo "[INF] Using java at $(which java)"
 
 echo "[INF] Building JAR with Gradle..."
-./gradlew $JAR_TASK
+./gradlew $JAR_TASK --quiet
 
 # Java modules for JRE
 echo "[INF] Getting required modules..."
