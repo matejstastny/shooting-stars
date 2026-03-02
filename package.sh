@@ -50,22 +50,27 @@ check_command() {
 	echo "[INF] Found: $cmd ($(command -v "$cmd"))"
 }
 
+# On Windows, normalize JAVA_HOME and prepend JDK bin to PATH early
+# so jdeps/jlink/jpackage are found even if only java.exe is on the system PATH
+case "$(uname -s)" in
+MINGW* | MSYS* | CYGWIN*)
+	if [[ -n "$JAVA_HOME" ]]; then
+		if command -v cygpath &>/dev/null; then
+			JAVA_HOME="$(cygpath -u "$JAVA_HOME")"
+		else
+			JAVA_HOME="/${JAVA_HOME:0:1,,}${JAVA_HOME:2}"
+			JAVA_HOME="${JAVA_HOME//\\//}"
+		fi
+		export PATH="$JAVA_HOME/bin:$PATH"
+		echo "[INF] Normalized JAVA_HOME: $JAVA_HOME"
+	fi
+	;;
+esac
+
 check_command java
 check_command jdeps
 check_command jlink
 check_command jpackage
-
-case "$(uname -s)" in
-MINGW* | MSYS* | CYGWIN*)
-	if command -v cygpath &>/dev/null; then
-		JAVA_HOME="$(cygpath -u "$JAVA_HOME")"
-	else
-		JAVA_HOME="/${JAVA_HOME:0:1,,}${JAVA_HOME:2}"
-		JAVA_HOME="${JAVA_HOME//\\//}"
-	fi
-	echo "[INF] Normalized JAVA_HOME: $JAVA_HOME"
-	;;
-esac
 
 JAVA_VERSION=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}' | awk -F. '{print $1}')
 if [ "$JAVA_VERSION" -ge 21 ]; then
