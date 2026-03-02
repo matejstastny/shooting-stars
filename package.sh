@@ -23,7 +23,7 @@ set -euo pipefail
 # =============================================================================
 
 APP_NAME="Shooting Stars"
-APP_VERSION="1.1.0"
+APP_VERSION="1.2.0"
 MAIN_JAR="shooting-stars.jar"          # filename of the fat JAR
 JAVA_MIN_VERSION=21
 GRADLE_BUILD_TASK="shadowjar"
