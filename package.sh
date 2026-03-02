@@ -72,6 +72,17 @@ check_command jdeps
 check_command jlink
 check_command jpackage
 
+if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OSTYPE" == "win32" ]]; then
+	if ! command -v candle.exe &>/dev/null || ! command -v light.exe &>/dev/null; then
+		echo "[ERR] WiX tools (candle.exe, light.exe) not found."
+		echo "[INF] jpackage requires WiX 3 to build EXE installers. WiX 4+ is NOT supported."
+		echo "[INF] Download WiX 3 from: https://github.com/wixtoolset/wix3/releases/latest"
+		echo "[INF] After installing, add the WiX bin folder to your system PATH."
+		exit 1
+	fi
+	echo "[INF] Found WiX: $(command -v candle.exe)"
+fi
+
 JAVA_VERSION=$(java -version 2>&1 | awk -F '"' '/version/ {print $2}' | awk -F. '{print $1}')
 if [ "$JAVA_VERSION" -ge 21 ]; then
 	echo "[INF] Java version is $JAVA_VERSION, which meets the requirement of 21 or higher."
@@ -118,7 +129,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	echo "[INF] DMG created at $MAC_BUILD_DIR/$APP_NAME.dmg"
 
 elif [[ "$OSTYPE" == "msys" || "$OSTYPE" == "cygwin" || "$OSTYPE" == "win32" ]]; then
-	# Windows EXE
 	mkdir -p "$WIN_BUILD_DIR"
 	echo "[INF] Windows detected. Creating EXE..."
 	jpackage \
